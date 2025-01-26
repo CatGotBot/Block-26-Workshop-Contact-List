@@ -1,5 +1,5 @@
 function ContactRow(props) { 
-    console.log (props.contact); 
+   
 
 return <>
  <tr>
