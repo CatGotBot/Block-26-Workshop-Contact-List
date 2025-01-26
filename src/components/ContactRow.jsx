@@ -1,8 +1,11 @@
 function ContactRow(props) { 
-   
+
+function handleClick () {
+props.setContact (props.contact) 
+}
 
 return <>
- <tr>
+ <tr onClick={handleClick}>
       <td>{props.contact.name}</td>
       <td>{props.contact.email}</td>
       <td>{props.contact.phone}</td>
@@ -11,3 +14,4 @@ return <>
 }
 
 export default ContactRow 
+

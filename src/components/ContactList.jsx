@@ -8,16 +8,15 @@ const dummyContacts = [
     { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
 ];
 
-function ContactList() {
+function ContactList({setContact}) {
     const [contacts, setContacts] = useState(dummyContacts)
 
     useEffect(() => {
         async function fetchContacts() {
             try {
-const response = await fetch ("https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users") 
-const data = await response.json () 
-
-console.log (data)
+                const response = await fetch("https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users")
+                const data = await response.json()
+                setContacts(data) 
             } catch (error) {
                 console.error(error);
             }
@@ -42,7 +41,7 @@ console.log (data)
                 </tr>
                 {
                     contacts.map(element => {
-                        return <ContactRow key={element.id} contact={element} />
+                        return <ContactRow setContact={setContact} key={element.id} contact={element} />
                     })
                 }
             </tbody>
